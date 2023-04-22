@@ -16,7 +16,7 @@ export const MovieList = ({api}) => {
 
   const handlePrevious = () =>{
     setPageCount(pageCount-1);
-    window.scrollTo(0,0);
+    window.scrollTo(0,0)
   }
   const handleNext = () =>{
     setPageCount(pageCount+1);
