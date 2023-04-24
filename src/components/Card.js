@@ -9,17 +9,17 @@ export const Card = ({movie}) => {
 
   return (
   <>
-    <div className="sm:w-72 w-48 sm:h-70 h-70 bg-white m-3 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="sm:w-72 w-36 h-auto bg-white m-3 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link onClick={()=>handleScrollto()} to={`/movie/${movie.id}`} >
-            <img className="rounded-t-lg sm:w-80 w-80  sm:h-96 h-56" src={image} alt="" />
+            <img className="rounded-t-lg sm:w-80 w-80  sm:h-96 h-40" src={image} alt="" />
         </Link>
-        <div className="p-5">
+        <div className="sm:p-5 p-1">
             <Link to="#">
-                <h5 className="mb-1 text-1xl sm:font-bold tracking-tight text-gray-900 dark:text-white">{original_title}</h5>
+                <h5 className="text-xs py-1 sm:text-base sm:font-medium tracking-tight text-gray-900 dark:text-white">{original_title}</h5>
             </Link>
             <div className="flex flex-row justify-between">
-              <p className="sm:p-3 py-3 dark:text-white flex flex-row items-center"><img className="h-3" src="https://img.icons8.com/fluency/48/null/star.png" alt=""/>{vote_average}</p>
-              <p className="sm:p-3 py-3 dark:text-white flex flex-row items-center"><img className="h-3" src="https://img.icons8.com/ios/50/ffffff/calendar--v1.png" alt=""/>&nbsp;{release_date}</p>
+              <p className="sm:p-3 py-1 dark:text-white sm:text-base text-xs flex flex-row items-center"><img className="h-3 sm:h-4" src="https://img.icons8.com/fluency/48/null/star.png" alt=""/>{vote_average}</p>
+              <p className="sm:p-3 py-1 dark:text-white sm:text-base text-xs flex flex-row items-center"><img className="h-3 sm:h-4" src="https://img.icons8.com/ios/50/ffffff/calendar--v1.png" alt=""/>&nbsp;{release_date}</p>
             </div>
         </div>
     </div>
