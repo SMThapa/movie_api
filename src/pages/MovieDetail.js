@@ -43,9 +43,9 @@ export const MovieDetail = () => {
             <div className="flex-row sm:h-auto sm:pb-7 flex items-center flex-col sm:pt-0 pt-5">
               <img className="sm:w-60 w-52 pt-5 sm:h-auto h-72 lg:pt-12 lg:w-80 md:pt-8 z-10" src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="" />
               <div className="flex flex-row justify-between">
-                <p className="p-3 dark:text-white flex flex-row text-sm items-center"><img className="h-5" src="https://img.icons8.com/fluency/48/null/star.png" alt=""/>{data.vote_average}</p>
-                <p className="p-3 dark:text-white flex flex-row text-sm items-center"><img className="h-5" src="https://img.icons8.com/material-outlined/24/ffffff/time.png" alt=""/> {data.runtime}min.</p>
-                <p className="p-3 dark:text-white flex flex-row text-sm items-center"><img className="h-5" src="https://img.icons8.com/ios/50/ffffff/calendar--v1.png" alt=""/>&nbsp;{data.release_date}</p>
+                <p className="p-3 dark:text-white flex flex-row text-sm items-center"><img className="h-3 sm:h-5" src="https://img.icons8.com/fluency/48/null/star.png" alt=""/>{data.vote_average}</p>
+                <p className="p-3 dark:text-white flex flex-row text-sm items-center"><img className="h-3 sm:h-5" src="https://img.icons8.com/material-outlined/24/ffffff/time.png" alt=""/> {data.runtime}min.</p>
+                <p className="p-3 dark:text-white flex flex-row text-sm items-center"><img className="h-3 sm:h-5" src="https://img.icons8.com/ios/50/ffffff/calendar--v1.png" alt=""/>&nbsp;{data.release_date}</p>
               </div>
             </div>
           </div>
