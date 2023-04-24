@@ -30,7 +30,7 @@ export const MovieList = ({api}) => {
         <div className="hero">
             <div className="items">
             <div className="slogan">
-              <h1 className="text-white text-5xl pb-5 sm:pb-10">My Movie List</h1>
+              <h1 className="text-white sm:text-5xl text-3xl pb-5 sm:pb-10">My Movie List</h1>
             </div>
             <div className="searchBar">
               <form onSubmit={handleSubmit}>   
@@ -51,7 +51,7 @@ export const MovieList = ({api}) => {
         <p className="text-white text-5xl">{loading? 'loading....': ''}</p>  
       </div>
       <div
-      className="py-7">
+      className="sm:py-7 py-3">
       </div>
       <div className="flex justify-center flex-wrap">    
         {movies.map(movie =>(

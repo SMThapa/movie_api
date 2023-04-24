@@ -9,7 +9,7 @@ main{
 
 .hero{
     display: flex;
-    height: 60vh;
+    height: 40vh;
     min-width: 100%;
     justify-content: center;
     align-items: center;
@@ -20,8 +20,9 @@ main{
 }
 @media screen and (max-width:640px){
     .hero{
-        height: 20vh;
+        height: auto;
         justify-content: center;
-        align-items: end;
+        align-items: center;
+        padding-top: 25px;
     }
 }
