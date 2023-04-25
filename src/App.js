@@ -1,24 +1,22 @@
 import { Header, Footer} from './components';
 import { AllRoutes } from './routes/AllRoutes';
-import '../src/style/style.css'
 import { useState } from 'react';
+import { WishListContext } from './context/WishListContext';
+import '../src/style/style.css'
+
 
 export default function App(){
 
-  const [wishItem, setWishItem] = useState([])
-
+  const [wishList, setWishList] = useState([])
   return(
     <>
-      <Header 
-        wishItem={wishItem}
-      />
-      <main className='dark:bg-slate-800'>
-        <AllRoutes 
-          wishItem={wishItem}
-          setWishItems={setWishItem}
-        />
-      </main>
-      <Footer/>
+      <WishListContext.Provider value={{wishList, setWishList}}>
+        <Header />
+        <main className='dark:bg-slate-800'>
+          <AllRoutes />
+        </main>
+        <Footer/>
+      </WishListContext.Provider>
     </>
   );
 }

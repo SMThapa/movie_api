@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-// import { useFetch } from "../hooks/useFetch";
+import { useEffect, useState, useContext } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import { Card } from "../components/Card";
+import { WishListContext } from "../context/WishListContext";
 import '../style/style.css'
 
 export const MovieDetail = () => {
 
+  const {wishList, setWishList} = useContext(WishListContext)
+  const [isIn, setIsIn] = useState(false)
   const params = useParams();
   const [data, setData] = useState([])
   const [recData, setRecData] = useState([])
@@ -23,8 +25,9 @@ export const MovieDetail = () => {
       setGenre(json.genres)
     }
     fetchMovie();
-  })
-  
+
+    wishList.includes(Number(params.id)) ? setIsIn(true) : setIsIn(false)
+  },[wishList, params.id])
 
   const theImage = data.backdrop_path;
 
@@ -33,6 +36,11 @@ export const MovieDetail = () => {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center'
+  }
+
+
+  const handleClick = () =>{
+    setWishList([...wishList, data.id]);
   }
 
   return (
@@ -51,7 +59,17 @@ export const MovieDetail = () => {
           </div>
           <div className="h-auto basis-2/3 sm:mb-20 mb-5 flex justify-center sm:justify-start items-end">
             <div className="dark:text-white w-10/12 h-4/5 flex flex-col justify-end">
+  
               <h1 className="sm:text-5xl text-3xl sm:pb-5 pb-2 font-medium sm:font-bold ">{data.original_title}</h1>
+                
+
+
+                {
+                  isIn ? 
+                    <NavLink to="/wishlist" className="w-36"><button type="button" className="focus:outline-none text-black bg-green-400 w-36 font-medium rounded-lg sm:text-sm text-xs px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">Check WishList!</button></NavLink>:
+                    <button type="button" onClick={()=>handleClick()} className="focus:outline-none text-black bg-yellow-400 w-36 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">Add to WishList</button>
+                }
+
               <p className="flex flex-wrap">
                   {genre.map(gen=>(
                     <span key={gen.id} className="dark:text-white sm:p-2 p-1 sm:mr-2 mr-2 sm:border-2 sm:font-medium flex-wrap">{gen.name}</span>
