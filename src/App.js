@@ -8,6 +8,7 @@ import '../src/style/style.css'
 export default function App(){
 
   const [wishList, setWishList] = useState([])
+  
   return(
     <>
       <WishListContext.Provider value={{wishList, setWishList}}>
